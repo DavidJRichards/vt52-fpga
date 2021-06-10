@@ -3,7 +3,7 @@ module clock_generator
    output clk_usb,
    output reset_usb,
    output clk_vga,
-   output reset_vga,
+   output reset_vga
    );
 
    wire locked;

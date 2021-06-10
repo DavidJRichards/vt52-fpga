@@ -56,7 +56,6 @@
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_i40.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/ofl.mem"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/test.mem"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/terminus_816_latin1.mem"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/keymap.mem"
@@ -99,13 +98,12 @@ proc checkRequiredFiles { origin_dir} {
    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_i40.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/ofl.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/test.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/terminus_816_latin1.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/keymap.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/terminus_816_bold_latin1.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/empty.mem" \
-   "/home/david/Documents/GitHub/djrm-EBAZ4205/board/sources/ebaz4205.xdc" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/ebaz4205.xdc" \
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -251,7 +249,6 @@ set files [list \
  [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_i40.v"] \
  [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart.v"] \
  [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"] \
- [file normalize "${origin_dir}/mem/ofl.mem"] \
  [file normalize "${origin_dir}/mem/test.mem"] \
  [file normalize "${origin_dir}/mem/terminus_816_latin1.mem"] \
  [file normalize "${origin_dir}/mem/keymap.mem"] \
@@ -275,11 +272,6 @@ set file "$origin_dir/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "is_enabled" -value "0" -objects $file_obj
-
-set file "$origin_dir/mem/ofl.mem"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Memory File" -objects $file_obj
 
 set file "$origin_dir/mem/test.mem"
 set file [file normalize $file]
@@ -324,9 +316,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/../board/sources/ebaz4205.xdc"]"
+set file "[file normalize "$origin_dir/ebaz4205.xdc"]"
 set file_added [add_files -norecurse -fileset $obj [list $file]]
-set file "$origin_dir/../board/sources/ebaz4205.xdc"
+set file "$origin_dir/ebaz4205.xdc"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
