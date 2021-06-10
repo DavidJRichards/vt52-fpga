@@ -33,29 +33,29 @@
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/command_handler.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/cursor.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/cursor_blinker.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/edge_detect.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/edge_detect.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/keyboard.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/keymap_rom.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/simple_register.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_in_arb.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_in_pe.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_out_arb.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_out_pe.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_pe.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_rx.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_tx.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_tx_mux.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_serial_ctrl_ep.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_bridge_ep.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_core.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_x7.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_in_arb.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_in_pe.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_out_arb.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_out_pe.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_pe.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_rx.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_tx.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_tx_mux.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_serial_ctrl_ep.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_bridge_ep.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_core.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_x7.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/video_generator.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/vt52.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_reset_det.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/serial.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_i40.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart.v"
-#    "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_reset_det.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/serial.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_i40.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart.v"
+#    "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_ecp5.v"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/test.mem"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/terminus_816_latin1.mem"
 #    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/keymap.mem"
@@ -75,29 +75,29 @@ proc checkRequiredFiles { origin_dir} {
    "/home/david/Documents/GitHub/djrm-vt52-fpga/command_handler.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/cursor.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/cursor_blinker.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/edge_detect.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/edge_detect.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/keyboard.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/keymap_rom.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/simple_register.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_in_arb.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_in_pe.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_out_arb.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_out_pe.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_pe.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_rx.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_tx.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_fs_tx_mux.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_serial_ctrl_ep.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_bridge_ep.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_core.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_x7.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_in_arb.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_in_pe.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_out_arb.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_out_pe.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_pe.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_rx.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_tx.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_fs_tx_mux.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_serial_ctrl_ep.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_bridge_ep.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_core.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_x7.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/video_generator.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/vt52.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_reset_det.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/serial.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_i40.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart.v" \
-   "/home/david/Documents/GitHub/djrm-vt52-fpga/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_reset_det.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/serial.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_i40.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart.v" \
+   "/home/david/Documents/GitHub/djrm-vt52-fpga/usbserial/usb/usb_uart_ecp5.v" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/test.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/terminus_816_latin1.mem" \
    "/home/david/Documents/GitHub/djrm-vt52-fpga/mem/keymap.mem" \
@@ -226,29 +226,29 @@ set files [list \
  [file normalize "${origin_dir}/command_handler.v"] \
  [file normalize "${origin_dir}/cursor.v"] \
  [file normalize "${origin_dir}/cursor_blinker.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/edge_detect.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/edge_detect.v"] \
  [file normalize "${origin_dir}/keyboard.v"] \
  [file normalize "${origin_dir}/keymap_rom.v"] \
  [file normalize "${origin_dir}/simple_register.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_in_arb.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_in_pe.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_out_arb.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_out_pe.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_pe.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_rx.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_tx.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_fs_tx_mux.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_serial_ctrl_ep.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_bridge_ep.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_core.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_x7.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_in_arb.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_in_pe.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_out_arb.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_out_pe.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_pe.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_rx.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_tx.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_fs_tx_mux.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_serial_ctrl_ep.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart_bridge_ep.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart_core.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart_x7.v"] \
  [file normalize "${origin_dir}/video_generator.v"] \
  [file normalize "${origin_dir}/vt52.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_reset_det.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/serial.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_i40.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart.v"] \
- [file normalize "${origin_dir}/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_reset_det.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/serial.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart_i40.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart.v"] \
+ [file normalize "${origin_dir}/usbserial/usb/usb_uart_ecp5.v"] \
  [file normalize "${origin_dir}/mem/test.mem"] \
  [file normalize "${origin_dir}/mem/terminus_816_latin1.mem"] \
  [file normalize "${origin_dir}/mem/keymap.mem"] \
@@ -258,17 +258,17 @@ set files [list \
 add_files -norecurse -fileset $obj $files
 
 # Set 'sources_1' fileset file properties for remote files
-set file "$origin_dir/tinyfpga_bx_usbserial/usb/usb_uart_i40.v"
+set file "$origin_dir/usbserial/usb/usb_uart_i40.v"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "is_enabled" -value "0" -objects $file_obj
 
-set file "$origin_dir/tinyfpga_bx_usbserial/usb/usb_uart.v"
+set file "$origin_dir/usbserial/usb/usb_uart.v"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "is_enabled" -value "0" -objects $file_obj
 
-set file "$origin_dir/tinyfpga_bx_usbserial/usb/usb_uart_ecp5.v"
+set file "$origin_dir/usbserial/usb/usb_uart_ecp5.v"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "is_enabled" -value "0" -objects $file_obj
