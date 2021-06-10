@@ -21,7 +21,9 @@ module keyboard
 
    localparam esc = 8'h1b;
 
-   localparam keycode_regular = 2'b0x;
+   localparam keycode_regular = 2'b0x; // djrm, doent work  as block design module, use 2'b00 and 2'b01
+//   localparam keycode_regular = 2'b00;
+//   localparam keycode_regular_ = 2'b01;
    localparam keycode_modifier = 2'b10;
    localparam keycode_escaped = 2'b11;
 
@@ -62,7 +64,7 @@ module keyboard
    // 11xxxxxx: special key, ESC + upper case ASCII (clear msb to get char)
    keymap_rom keymap_rom(.clk(clk),
                          .addr(keymap_address),
-                         .dout(keymap_data)
+                         .dout_(keymap_data)
                          );
 
    // we don't need to do this on the pixel clock, we could use

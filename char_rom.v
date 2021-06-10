@@ -9,18 +9,18 @@
 module char_rom
   (input clk,
    input [11:0] addr,
-   output [7:0] dout
+   output [7:0] dout_
    );
 
-   reg [7:0] dout;
+   reg [7:0] dout_;
    reg [7:0] mem [4095:0];
 
    initial begin
-      $readmemh("mem/terminus_816_latin1.hex", mem) ;
-//      $readmemh("mem/terminus_816_bold_latin1.hex", mem) ;
+      $readmemh("terminus_816_latin1.mem", mem) ;
+//      $readmemh("terminus_816_bold_latin1.mem", mem) ;
    end
 
    always @(posedge clk) begin
-      dout = mem[addr];
+      dout_ = mem[addr];
    end
 endmodule

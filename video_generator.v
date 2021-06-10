@@ -7,7 +7,7 @@ module video_generator
     // XXX These could probably be calculated from the above
     parameter ROW_BITS = 5,
     parameter COL_BITS = 7,
-    parameter ADDR_BITS = 11,
+    parameter ADDR_BITS = 11
     // first address outside the visible area
     )
    (input clk,

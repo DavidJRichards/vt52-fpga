@@ -1,7 +1,11 @@
 module top (input       clk,
+            output wire vga_clk,
+            output wire vga_blank,
             output wire hsync,
             output wire vsync,
-            output wire video,
+            output wire [7:0]vga_r,
+            output wire [7:0]vga_g,
+            output wire [7:0]vga_b,
             output wire led,
             input       ps2_data,
             input       ps2_clk,
@@ -42,6 +46,9 @@ module top (input       clk,
 
    // video generator
    wire vblank, hblank;
+   wire video;
+   assign vga_clk = clk_vga;
+   assign vga_blank = 1'b1;
 
    // uart input/output
    wire [7:0] uart_out_data;
@@ -58,6 +65,33 @@ module top (input       clk,
    // USB host detect
    assign pin_pu = 1'b1;
 
+   assign vga_r[7] = video;
+   assign vga_r[6] = video;
+   assign vga_r[5] = video;
+   assign vga_r[4] = video;
+   assign vga_r[3] = video;
+   assign vga_r[2] = video;
+   assign vga_r[1] = video;
+   assign vga_r[0] = video;
+   
+   assign vga_g[7] = video;
+   assign vga_g[6] = video;
+   assign vga_g[5] = video;
+   assign vga_g[4] = video;
+   assign vga_g[3] = video;
+   assign vga_g[2] = video;
+   assign vga_g[1] = video;
+   assign vga_g[0] = video;
+   
+   assign vga_b[7] = video;
+   assign vga_b[6] = video;
+   assign vga_b[5] = video;
+   assign vga_b[4] = video;
+   assign vga_b[3] = video;
+   assign vga_b[2] = video;
+   assign vga_b[1] = video;
+   assign vga_b[0] = video;
+   
    //
    // Instantiate all modules
    //
@@ -107,7 +141,7 @@ module top (input       clk,
 
    char_rom char_rom(.clk(clk_usb),
                      .addr(char_rom_address),
-                     .dout(char_rom_data)
+                     .dout_(char_rom_data)
                      );
 
    video_generator #(.ROWS(ROWS),
