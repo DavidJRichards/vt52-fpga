@@ -4,5 +4,6 @@ pll.v
 *.bin
 *.json
 vt52_usb/*
+usb_loopback/*
 webtalk*
 *~

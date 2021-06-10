@@ -1,4 +1,4 @@
-module top (input       clk,
+module top (input       pin_clk,
             output wire vga_clk,
             output wire vga_blank,
             output wire hsync,
@@ -6,7 +6,7 @@ module top (input       clk,
             output wire [7:0]vga_r,
             output wire [7:0]vga_g,
             output wire [7:0]vga_b,
-            output wire led,
+            output wire pin_led,
             input       ps2_data,
             input       ps2_clk,
             inout       pin_usb_p,
@@ -95,7 +95,7 @@ module top (input       clk,
    //
    // Instantiate all modules
    //
-   clock_generator clock_generator(.clk(clk),
+   clock_generator clock_generator(.clk(pin_clk),
                                    .clk_usb(clk_usb),
                                    .reset_usb(reset_usb),
                                    .clk_vga(clk_vga),

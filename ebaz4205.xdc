@@ -19,8 +19,6 @@ set_property -dict {PACKAGE_PIN Y14 IOSTANDARD LVCMOS33} [get_ports MDIO_ETHERNE
 set_property -dict {PACKAGE_PIN U18 IOSTANDARD LVCMOS33} [get_ports ETHERNET_CLOCK]
 # 33.3 Mhz MHz
 set_property -dict {PACKAGE_PIN U19 IOSTANDARD LVCMOS33} [get_ports MULTICOMP_CLOCK]
-# switch / button
-set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33 PULLUP true} [get_ports {switch_0}]
 
 # LEDs
 set_property -dict {PACKAGE_PIN A20 IOSTANDARD LVCMOS33} [get_ports {led_blue}]
@@ -47,14 +45,17 @@ set_property -dict {PACKAGE_PIN H18 IOSTANDARD LVCMOS33} [get_ports {pmod[7]}]
 #########################################################
 # Clock (33.333 MHz)                                       #
 #########################################################
-set_property -dict {PACKAGE_PIN N18 IOSTANDARD LVCMOS33} [get_ports {clk}]
-create_clock -period 30.0 -name sys_clk_pin -waveform {0.000 4.000} -add [get_ports clk]
+set_property -dict {PACKAGE_PIN N18 IOSTANDARD LVCMOS33} [get_ports {pin_clk}]
+create_clock -period 30.0 -name sys_clk_pin -waveform {0.000 4.000} -add [get_ports pin_clk]
+
+# switch / button
+set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33 PULLUP true} [get_ports {pin_button}]
 
 # gpio 66, 67, 68, 69
 # USB UART interface
 set_property -dict { PACKAGE_PIN F19   IOSTANDARD LVCMOS33 } [get_ports pin_usb_n]; 
-set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 PULLUP true} [get_ports pin_usb_p]; 
-set_property -dict { PACKAGE_PIN F20   IOSTANDARD LVCMOS33 } [get_ports led]; 
+set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports pin_usb_p]; 
+set_property -dict { PACKAGE_PIN F20   IOSTANDARD LVCMOS33 } [get_ports pin_led]; 
 set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports pin_pu]; 
 
 ##################################

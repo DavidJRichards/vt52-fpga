@@ -11,31 +11,24 @@ module usbserial_tbx (
         inout  pin_usb_n,
         output pin_pu,
 
-        output pin_led,
+        input  pin_button,
+        output pin_led
 
-        output [3:0] debug
+//        output [3:0] debug
     );
 
     wire clk_48mhz;
+    wire clk_reset;
 
-    wire clk_locked;
-
-    // Use an icepll generated pll
-    pll pll48( .clock_in(pin_clk), .clock_out(clk_48mhz), .locked( clk_locked ) );
-
-    // LED
-    reg [22:0] ledCounter;
-    always @(posedge clk_48mhz) begin
-        ledCounter <= ledCounter + 1;
-    end
-    assign pin_led = ledCounter[ 22 ];
-
-    // Generate reset signal
-    reg [5:0] reset_cnt = 0;
-    wire reset = ~reset_cnt[5];
-    always @(posedge clk_48mhz)
-        if ( clk_locked )
-            reset_cnt <= reset_cnt + reset;
+// zynq clock generator pll
+    clock_pll48  clock_pll48
+    (
+   .clk_in(pin_clk),
+   .clk_out(clk_48mhz),
+   .clk_reset(clk_reset),
+   .clk_button(pin_button),
+   .clk_tick(pin_led)
+   );
 
     // uart pipeline in
     wire [7:0] uart_in_data;
@@ -53,7 +46,7 @@ module usbserial_tbx (
     // usb uart - this instanciates the entire USB device.
     usb_uart uart (
         .clk_48mhz  (clk_48mhz),
-        .reset      (reset),
+        .reset      (clk_reset),
 
         // pins
         .pin_usb_p( pin_usb_p ),
@@ -72,6 +65,7 @@ module usbserial_tbx (
     );
 
     // USB Host Detect Pull Up
-    assign pin_pu = 1'b1;
+//    assign pin_pu = 1'b1;
+    assign pin_pu = ~clk_reset;
 
 endmodule
