@@ -1,7 +1,7 @@
 //
 // File created with some elisp & keyboard macro magic...
 //
-
+// djrm, modified for UK keyboard
 //
 // The first 3 bits in the address select the keycode
 // long-keycode? capslock-pressed? shift-pressed?
@@ -71,10 +71,17 @@ a0
 @311
 88
 
+// \
+@061
+5c
+
+// |
+@161
+7c
+
 //
 // no shift or caps lock:
 //
-
 
 @000
 // F1 (left blank key)
@@ -86,15 +93,19 @@ d1
 // F3 (right blank key)
 @004
 d2
+
 // `
 @00e
 60
+
 // 1
 @016
 31
+
 // 2
 @01e
 32
+
 // 3
 @026
 33
@@ -125,9 +136,13 @@ d2
 // =
 @055
 3d
-// \
+// #
 @05d
-5c
+23
+
+
+
+
 // q
 @015
 71
@@ -164,6 +179,9 @@ d2
 // ]
 @05b
 5d
+
+
+
 // a
 @01c
 61
@@ -197,6 +215,9 @@ d2
 // '
 @052
 27
+
+
+
 // z
 @01a
 7a
@@ -227,6 +248,9 @@ d2
 // /
 @04a
 2f
+
+
+
 // escape
 @076
 1b
@@ -249,15 +273,15 @@ d2
 
 @100
 
-// ~
+// ~ change to ¬
 @10e
 7e
 // !
 @116
 21
-// @
+// "
 @11e
-40
+22
 // #
 @126
 23
@@ -288,9 +312,13 @@ d2
 // +
 @155
 2b
-// |
+// ~
 @15d
-7c
+7e
+
+######~~~##########
+
+
 // Q
 @115
 51
@@ -327,6 +355,8 @@ d2
 // }
 @15b
 7d
+
+
 // A
 @11c
 41
@@ -357,9 +387,11 @@ d2
 // :
 @14c
 3a
-// "
+// @
 @152
-22
+40
+
+
 // Z
 @11a
 5a
@@ -776,37 +808,38 @@ d2
 0a
 // up arrow (Esc-A)
 @475
-e1
+c1
 @575
-e1
+c1
 @675
-e1
+c1
 @775
-e1
+c1
 // down arrow (Esc-B)
 @472
-e2
+c2
 @572
-e2
+c2
 @672
-e2
+c2
 @772
-e2
+c2
 // right arrow (Esc-C)
 @474
-e3
+c3
 @574
-e3
+c3
 @674
-e3
+c3
 @774
-e3
+c3
 // left arrow (Esc-D)
 @46b
-e4
+c4
 @56b
-e4
+c4
 @66b
-e4
+c4
 @76b
-e4
+c4
+

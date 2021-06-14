@@ -7,4 +7,6 @@ vt52_usb/*
 usb_loopback/*
 webtalk*
 usbreset/usbreset
+usbreset/dispchars
+junk
 *~

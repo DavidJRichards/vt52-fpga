@@ -22,6 +22,18 @@ sudo systemctl enable serial-getty@ttyACM0.service
 sudo systemctl start serial-getty@ttyACM0.service
 ```
 
+change TERM setting to VT52 by creating an overrride file for /dev/ttyACM0
+```
+sudo systemctl edit serial-getty@ttyACM0.service
+```
+Add the following lines:
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty -o '-p -- \\u' --keep-baud 115200,38400,9600 %I vt52
+```
+
+
 ![VGA Login session](./img/USB-ttyACM0-login.jpg)
 
 
@@ -35,4 +47,18 @@ The keyboard is a PS/2 PC keyboard with clock and data lines fed into the fpga w
 
 The USB interface is very simple consisting of current limiting resistors of 47R and a pull up resistor to identify the USB transfer speed. A separate output is used to pull the D+ line high through 2k2 to identify full speed USB, an internal pull up on D+ may be used instead.
 
-![USB interface](./img/USB-UART-interface.jpg)
+![USB interface](./img/USB-UART-interface2.jpg)
+
+## keyboard changes for UK PS/2
+
+see here for scancodes used in set2 column.
+http://www.quadibloc.com/comp/scan.htm
+
+Cursor keys now send upper case ESC codes (was lower case)
+
+## display font characters
+
+![dispchars](../mem/dispchars.jpg)
+
+
+
