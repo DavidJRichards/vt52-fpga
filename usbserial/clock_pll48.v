@@ -2,7 +2,6 @@ module clock_pll48
   (input  clk_in,
    output clk_out,
    output clk_reset,
-   input  clk_button,
    output clk_tick
    );
 
@@ -32,19 +31,12 @@ module clock_pll48
 
    // Generate reset signal
    reg [5:0] reset_cnt = 0;
-   assign clk_reset = ~reset_cnt[5] & clk_button;
-
+   assign clk_reset = ~reset_cnt[5];
    always @(posedge clk_out) begin
-     if (clk_button)
-       if (clk_locked) reset_cnt <= reset_cnt + clk_reset;
-     else
-       reset_cnt <=0;
-     
-     if(clk_button)
-        ledCounter <= ledCounter + 1; 
-      else
-        ledCounter <=0;
-   end
+     if (clk_locked) 
+       reset_cnt <= reset_cnt + clk_reset;
+       ledCounter <= ledCounter + 1; 
+    end
  
    assign clk_tick = ledCounter[ 23 ];
 

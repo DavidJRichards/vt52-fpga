@@ -60,9 +60,9 @@ module top (input       pin_clk,
    wire uart_in_ready;
 
    // led follows the cursor blink
-   assign led = cursor_blink_on;
+//   assign pin_led = cursor_blink_on;
 
-   // USB host detect
+   // USB host detect and reset
    assign pin_pu = 1'b1;
 
    assign vga_r[7] = video;
@@ -178,7 +178,8 @@ module top (input       pin_clk,
                  // uart pipeline out (usb->command_handler)
                  .uart_out_data(uart_out_data),
                  .uart_out_valid(uart_out_valid),
-                 .uart_out_ready(uart_out_ready)
+                 .uart_out_ready(uart_out_ready),
+                 .det_reset(pin_led)
                  );
 
    command_handler #(.ROWS(ROWS),

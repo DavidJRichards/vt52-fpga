@@ -1,4 +1,12 @@
-# vt52-fpga
+# USB UART
+
+Projects using usb serial IP . this bit bashes a USB UART.
+
+## usb-loopback
+
+This is a demo project which simply echoes back to the output what it receives on the input.
+
+## vt52-fpga
 
 https://github.com/DavidJRichards/vt52-fpga
 
@@ -28,5 +36,3 @@ The keyboard is a PS/2 PC keyboard with clock and data lines fed into the fpga w
 The USB interface is very simple consisting of current limiting resistors of 47R and a pull up resistor to identify the USB transfer speed. A separate output is used to pull the D+ line high through 2k2 to identify full speed USB, an internal pull up on D+ may be used instead.
 
 ![USB interface](./img/USB-UART-interface.jpg)
-
-

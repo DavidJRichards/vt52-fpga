@@ -52,11 +52,17 @@ create_clock -period 30.0 -name sys_clk_pin -waveform {0.000 4.000} -add [get_po
 set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33 PULLUP true} [get_ports {pin_button}]
 
 # gpio 66, 67, 68, 69
-# USB UART interface
-set_property -dict { PACKAGE_PIN F19   IOSTANDARD LVCMOS33 } [get_ports pin_usb_n]; 
+# USB UART interface A - VGA board
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports pin_usb_p]; 
-set_property -dict { PACKAGE_PIN F20   IOSTANDARD LVCMOS33 } [get_ports pin_led]; 
+set_property -dict { PACKAGE_PIN F19   IOSTANDARD LVCMOS33 } [get_ports pin_usb_n]; 
 set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports pin_pu]; 
+set_property -dict { PACKAGE_PIN F20   IOSTANDARD LVCMOS33 } [get_ports pin_led]; 
+
+# USB interface B - Bare board
+#set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports pin_usb_n]; 
+#set_property -dict { PACKAGE_PIN H18   IOSTANDARD LVCMOS33 } [get_ports pin_usb_p]; 
+#set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports pin_led]; 
+#set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports pin_pu]; 
 
 ##################################
 # J3, PS2 interface

@@ -6,4 +6,5 @@ pll.v
 vt52_usb/*
 usb_loopback/*
 webtalk*
+usbreset/usbreset
 *~

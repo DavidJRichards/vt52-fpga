@@ -49,10 +49,36 @@ module usb_uart (
         output [7:0] uart_out_data,
         output       uart_out_valid,
         input        uart_out_ready,
-
+        
+        output  det_reset,
         output [11:0] debug
     );
-
+    
+    
+      // reset detection
+/*
+      reg [16:0] reset_timer = 0;
+      reg reset_i = 0;
+    
+    
+      wire timer_expired = reset_timer > 16'd30000;
+      //wire timer_expired = reset_timer > 16'd30;
+      always @(posedge clk_48mhz) reset_i <= timer_expired;
+      assign reset_det = reset_i;
+     
+      
+      always @(posedge clk_48mhz) begin
+        if (usb_p_rx || usb_n_rx) begin
+          reset_timer <= 0;
+        end else begin
+          // SE0 detected from host
+          if (!timer_expired) begin
+            // timer not expired yet, keep counting
+            reset_timer <= reset_timer + 1;
+          end
+        end
+      end
+*/      
     wire usb_p_tx;
     wire usb_n_tx;
     wire usb_p_rx;
@@ -61,9 +87,19 @@ module usb_uart (
 
     //wire [3:0] debug;
 
+    
+    usb_reset_det usb_reset_det (
+    .clk(clk_48mhz),
+    .reset(det_reset),
+    .usb_p_rx(usb_p_rx),
+    .usb_n_rx(usb_n_rx)
+    );
+
+    
+    
     usb_uart_core u_u_c_np (
         .clk_48mhz  (clk_48mhz),
-        .reset      (reset),
+        .reset      (reset || det_reset),
 
         // pins - these must be connected properly to the outside world.  See below.
         .usb_p_tx(usb_p_tx),
