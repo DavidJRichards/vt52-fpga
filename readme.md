@@ -49,6 +49,8 @@ The USB interface is very simple consisting of current limiting resistors of 47R
 
 ![USB interface](./img/USB-UART-interface2.jpg)
 
+USB info: https://www.beyondlogic.org/usbnutshell/usb2.shtml#Electrical
+
 ## keyboard changes for UK PS/2
 
 see here for scancodes used in set2 column.
@@ -58,7 +60,107 @@ Cursor keys now send upper case ESC codes (was lower case)
 
 ## display font characters
 
-![dispchars](../mem/dispchars.jpg)
+Simple program to show printable characters in fpga font:
+
+```C
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+   int i,j,k,n;
+   char s[8];
+   k=0;
+   
+   printf("\n\r   ");
+   for(n=0;n<16;n++)
+      printf("%4X",n);
+      
+   printf("\n\r     ");
+   for(n=0;n<16;n++)
+      printf("%s","----");
+      
+   for(i=0;i<16;i++)
+   {
+      printf("\n\r%3X |",k);
+      for (j=0;j<16;j++)
+      {
+         switch(k){
+         case 7:
+            strcpy(s,"tab");
+            break;
+         
+         case 8:
+            strcpy(s,"bs ");
+            break;
+         
+         case 10:
+            strcpy(s,"nl ");
+            break;
+            
+         case 27:
+           strcpy(s,"esc");
+            break;
+
+         case 127:
+            strcpy(s,"del");
+            break;
+            
+         case 13:
+            strcpy(s,"cr ");
+            break;
+
+         case 9:
+         case 12:
+         case 11:
+         case 15:
+         case 26:
+            *s=0;
+            break;
+         
+         case 0:
+         case 1:
+         case 2:
+         case 3:
+         case 4:
+         case 5:
+         case 6:
+         case 14:
+         case 16:
+         case 17:
+         case 18:
+         case 19:
+         case 20:
+         case 21:
+         case 22:
+         case 23:
+         case 24:
+         case 25:
+         case 28:
+         case 29:
+         case 30:
+         case 31:
+            *s=0;
+         break;
+         
+         default:       
+            sprintf(s,"%c ",k);
+            break;
+         } /* end case */
+         printf("%3.3s",s);
+         k++;
+         printf("|");
+      } /* end j */
+   } /* end i */
+   printf("\n\r     ");
+   for(n=0;n<16;n++)
+      printf("%s","----");
+   printf("\n\r   ");
+   return 0;
+}
+```
+
+![dispchars](./img/dispchars.jpg)
 
 
 
