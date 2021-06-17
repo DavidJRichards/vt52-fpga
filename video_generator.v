@@ -30,7 +30,8 @@ module video_generator
     input [7:0] char_buffer_data,
     // char rom
     output wire [11:0] char_rom_address,
-    input [7:0] char_rom_data
+    input [7:0] char_rom_data,
+    input graphic_mode_state
     );
    localparam PAST_LAST_ROW = ROWS * COLS;
    // VGA Signal 640x400 @ 70 Hz timing

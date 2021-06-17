@@ -20,7 +20,8 @@ module command_handler
     output new_char_wen,
     output [COL_BITS-1:0] new_cursor_x,
     output [ROW_BITS-1:0] new_cursor_y,
-    output new_cursor_wen
+    output new_cursor_wen,
+    output graphic_mode
     );
 
    // XXX maybe ready should be registered? reg ready_q;
@@ -58,6 +59,7 @@ module command_handler
    localparam state_erase  = 8'b01000000;
 
    reg [7:0] state;
+   reg graphic_mode_set;
 
    // if we are erasing part of the screen or moving the cursor
    // we can't receive new commands
@@ -70,6 +72,7 @@ module command_handler
    assign new_cursor_wen = new_cursor_wen_q;
    assign new_first_char = new_first_char_q;
    assign new_first_char_wen = new_first_char_wen_q;
+   assign graphic_mode = graphic_mode_set;
 
    always @(posedge clk) begin
       if (reset) begin
@@ -92,6 +95,7 @@ module command_handler
          new_col <= 0;
          new_addr <= 0;
          last_char_to_erase <= 0;
+         graphic_mode_set <= 0;
       end
       else begin
          // after one clock cycle we should turn these off
@@ -309,6 +313,16 @@ module command_handler
                                             LAST_ROW+(COLS-1): new_first_char_q-1;
                       state <= state_erase;
                    end
+                   // Graphic mode
+                   "F": begin // enter
+                      graphic_mode_set <= 1;
+                      state <= state_char;
+                   end
+                   "G": begin // exit
+                      graphic_mode_set <= 0;
+                      state <= state_char;
+                   end
+                   
                    // escape
                    8'h1b: begin
                       // on VT52 two escapes don't cancel each other

@@ -23,15 +23,19 @@ int main(void)
       {
          switch(k){
          case 7:
-            strcpy(s,"tab");
+            strcpy(s,"bel");
             break;
          
          case 8:
-            strcpy(s,"bs ");
+            strcpy(s," bs");
+            break;
+         
+         case 9:
+            strcpy(s,"tab");
             break;
          
          case 10:
-            strcpy(s,"nl ");
+            strcpy(s," lf");
             break;
             
          case 27:
@@ -43,10 +47,9 @@ int main(void)
             break;
             
          case 13:
-            strcpy(s,"cr ");
+            strcpy(s," cr");
             break;
 
-         case 9:
          case 12:
          case 11:
          case 15:
@@ -85,7 +88,9 @@ int main(void)
             sprintf(s,"%c ",k);
             break;
          } /* end case */
+//printf("\x1b%c",'F');
          printf("%3.3s",s);
+//printf("\x1b%c",'G');
          k++;
          printf("|");
       } /* end j */
@@ -97,5 +102,7 @@ int main(void)
    for(n=0;n<16;n++)
       printf("%s","----");
    printf("\n\r   ");
+//printf("\x1b%c",'G');
+
    return 0;
 }

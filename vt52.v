@@ -41,6 +41,8 @@ module top (input       pin_clk,
    wire [ADDR_BITS-1:0] char_address;
    wire [7:0] char;
    // char rom
+   wire graphic_mode_state;
+   wire graphic_mode;
    wire [11:0] char_rom_address;
    wire [7:0] char_rom_data;
 
@@ -59,6 +61,9 @@ module top (input       pin_clk,
    wire uart_in_valid;
    wire uart_in_ready;
 
+    wire det_reset;
+    assign pin_led = det_reset;
+    
    // led follows the cursor blink
 //   assign pin_led = cursor_blink_on;
 
@@ -91,6 +96,8 @@ module top (input       pin_clk,
    assign vga_b[2] = video;
    assign vga_b[1] = video;
    assign vga_b[0] = video;
+   
+   assign graphic_mode_state = graphic_mode;
    
    //
    // Instantiate all modules
@@ -136,12 +143,14 @@ module top (input       pin_clk,
                            .waddr(new_char_address),
                            .wen(new_char_wen),
                            .raddr(char_address),
-                           .dout(char)
+                           .dout(char),
+                           .graphic_mode(graphic_mode)
                            );
 
    char_rom char_rom(.clk(clk_usb),
                      .addr(char_rom_address),
                      .dout_(char_rom_data)
+//                     .graphic_mode(graphic_mode)
                      );
 
    video_generator #(.ROWS(ROWS),
@@ -179,7 +188,7 @@ module top (input       pin_clk,
                  .uart_out_data(uart_out_data),
                  .uart_out_valid(uart_out_valid),
                  .uart_out_ready(uart_out_ready),
-                 .det_reset(pin_led)
+                 .det_reset(det_reset)
                  );
 
    command_handler #(.ROWS(ROWS),
@@ -188,7 +197,7 @@ module top (input       pin_clk,
                      .COL_BITS(COL_BITS),
                      .ADDR_BITS(ADDR_BITS))
       command_handler(.clk(clk_usb),
-                      .reset(reset_usb),
+                      .reset(reset_usb),// || det_reset),
                       .data(uart_out_data),
                       .valid(uart_out_valid),
                       .ready(uart_out_ready),
@@ -199,7 +208,8 @@ module top (input       pin_clk,
                       .new_char_wen(new_char_wen),
                       .new_cursor_x(new_cursor_x),
                       .new_cursor_y(new_cursor_y),
-                      .new_cursor_wen(new_cursor_wen)
+                      .new_cursor_wen(new_cursor_wen),
+                      .graphic_mode(graphic_mode)
                       );
 
  endmodule
