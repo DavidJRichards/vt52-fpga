@@ -46,7 +46,7 @@ codepoints_map.update({v: v for v in range(0xa0, 0x100)})
 # Example alternative: some box drawing chars from codepage 437, NOT TESTED
 # (info taken from https://en.wikipedia.org/wiki/Code_page_437)
 
-
+# 0xB3
 codepoints_map[179] = 0x2502
 codepoints_map[180] = 0x2524
 codepoints_map[181] = 0x2561
@@ -60,6 +60,7 @@ codepoints_map[188] = 0x255d
 codepoints_map[189] = 0x255c
 codepoints_map[190] = 0x255b
 codepoints_map[191] = 0x2510
+#0xC0
 codepoints_map[192] = 0x2514
 codepoints_map[193] = 0x2534
 codepoints_map[194] = 0x252c
@@ -76,6 +77,7 @@ codepoints_map[204] = 0x2560
 codepoints_map[205] = 0x2550
 codepoints_map[206] = 0x256c
 codepoints_map[207] = 0x2567
+#0xD0
 codepoints_map[208] = 0x2568
 codepoints_map[209] = 0x2564
 codepoints_map[210] = 0x2565
@@ -87,7 +89,41 @@ codepoints_map[215] = 0x256b
 codepoints_map[216] = 0x256a
 codepoints_map[217] = 0x2518
 codepoints_map[218] = 0x250c
+#0xE0
+codepoints_map[224] = 0x25c6
+codepoints_map[225] = 0x2592
+codepoints_map[226] = 0x2409
+codepoints_map[227] = 0x240c
+codepoints_map[228] = 0x240d
+codepoints_map[229] = 0x240a
+codepoints_map[230] = 0x30a
+codepoints_map[231] = 0xb1
+codepoints_map[232] = 0x2424
+codepoints_map[233] = 0x240b
+codepoints_map[234] = 0x251b
+codepoints_map[235] = 0x2513
+codepoints_map[236] = 0x250f
+codepoints_map[237] = 0x2517
+codepoints_map[238] = 0x254b
+codepoints_map[239] = 0x23ba
 
+#0xF0
+codepoints_map[240] = 0x23bb
+codepoints_map[241] = 0x23af
+codepoints_map[242] = 0x23bc
+codepoints_map[243] = 0x23bd
+codepoints_map[244] = 0x2523
+codepoints_map[245] = 0x252b
+codepoints_map[246] = 0x253b
+codepoints_map[247] = 0x2533
+codepoints_map[248] = 0x2503
+codepoints_map[249] = 0x2264
+codepoints_map[250] = 0x2265
+codepoints_map[251] = 0x3a0
+codepoints_map[252] = 0x2260
+codepoints_map[253] = 0xa3
+codepoints_map[254] = 0x25cf
+codepoints_map[255] = 0
 
 # set of all assigned codepoints, constructed programatically codepoints_map
 codepoints = set(codepoints_map.values())

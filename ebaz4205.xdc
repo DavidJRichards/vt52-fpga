@@ -73,8 +73,8 @@ set_property -dict {PACKAGE_PIN U12 IOSTANDARD LVCMOS33 PULLUP true} [get_ports 
 ##################################
 # J5 UART interface
 ##################################
-set_property -dict {PACKAGE_PIN V15 IOSTANDARD LVCMOS33 } [get_ports {uart_rtl_rxd}]
-set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33 } [get_ports {uart_rtl_txd}]
+set_property -dict {PACKAGE_PIN V15 IOSTANDARD LVCMOS33 } [get_ports {uart_rxd}]
+set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33 } [get_ports {uart_txd}]
 
 #########################################################
 # VGA                                                   #

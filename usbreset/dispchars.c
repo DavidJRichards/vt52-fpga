@@ -6,19 +6,21 @@ int main(void)
    int i,j,k,n;
    char s[8];
    k=0;
+
+//   printf("\x1b%c",'F');
    
-   printf("\n\r   ");
+   printf("\n\n\n\n\n\n\n\n\r   ");
    for(n=0;n<16;n++)
       printf("%4X",n);
       
-   printf("\n\r     ");
-   for(n=0;n<16;n++)
-      printf("%s","----");
+   printf("\n\r    \xda");
+   for(n=0;n<15;n++)
+      printf("%s","\xc4\xc4\xc4\xc2");
+   printf("%s","\xc4\xc4\xc4\xbf");
       
    for(i=0;i<16;i++)
    {
-      printf("\n\r%3X |",k);
-//      printf("\n\r|");
+      printf("\n\r%3X \xb3",k);
       for (j=0;j<16;j++)
       {
          switch(k){
@@ -51,6 +53,9 @@ int main(void)
             break;
 
          case 12:
+            strcpy(s," ff");
+            break;
+
          case 11:
          case 15:
          case 26:
@@ -88,21 +93,42 @@ int main(void)
             sprintf(s,"%c ",k);
             break;
          } /* end case */
-//printf("\x1b%c",'F');
+         if( (k>=96) && (k<127) )
+            printf("\x1b%c",'F');
+            
          printf("%3.3s",s);
-//printf("\x1b%c",'G');
+         printf("\x1b%c",'G');
          k++;
-         printf("|");
+         printf("\xb3");
       } /* end j */
-//      printf("\n\r  ");
-//      for(n=0;n<16;n++)
-//         printf("%s","----");
+      
+      if(i==15)continue;
+      
+      if(i==7)
+      {
+         printf("\n\r    \xc0");
+         for(n=0;n<15;n++)
+            printf("%s","\xc4\xc4\xc4\xc1");
+         printf("\xc4\xc4\xc4\xd9\n\r   ");
+         getchar();
+         printf("\n\n\n\n\n\n\n\n\r    \xda");
+         for(n=0;n<15;n++)
+            printf("%s","\xc4\xc4\xc4\xc2");
+         printf("%s","\xc4\xc4\xc4\xbf");
+      }
+      else
+      {
+         printf("\n\r    \xc3");
+         for(n=0;n<15;n++)
+            printf("%s","\xc4\xc4\xc4\xc5");
+         printf("%s","\xc4\xc4\xc4\xb4");
+      }   
    } /* end i */
-   printf("\n\r     ");
-   for(n=0;n<16;n++)
-      printf("%s","----");
-   printf("\n\r   ");
-//printf("\x1b%c",'G');
-
+   printf("\n\r    \xc0");
+   for(n=0;n<15;n++)
+      printf("%s","\xc4\xc4\xc4\xc1");
+   printf("\xc4\xc4\xc4\xd9\n\r   ");
+   printf("\x1b%c",'G');
+   getchar();
    return 0;
 }

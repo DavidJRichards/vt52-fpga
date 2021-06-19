@@ -11,7 +11,10 @@ module top (input       pin_clk,
             input       ps2_clk,
             inout       pin_usb_p,
             inout       pin_usb_n,
-            output wire pin_pu
+            output wire pin_pu,
+            input wire uart_rxd,
+            output wire uart_txd
+            
             );
    localparam ROWS = 24;
    localparam COLS = 80;
@@ -63,7 +66,9 @@ module top (input       pin_clk,
 
     wire det_reset;
     assign pin_led = det_reset;
-    
+
+    assign uart_rts = 1'b1;
+        
    // led follows the cursor blink
 //   assign pin_led = cursor_blink_on;
 
@@ -175,6 +180,37 @@ module top (input       pin_clk,
                       .char_rom_data(char_rom_data)
                       );
 
+`ifdef ALT_UART
+
+    uart uart_inst (
+                    .clk(clk_usb),
+                    .rst(reset_usb),
+                    // AXI input
+                    .s_axis_tdata(uart_in_data),
+                    .s_axis_tvalid(uart_in_valid),
+                    .s_axis_tready(uart_in_ready),
+                    // AXI output
+                    .m_axis_tdata(uart_out_data),
+                    .m_axis_tvalid(uart_out_valid),
+                    .m_axis_tready(uart_out_ready),
+                    // uart
+                    .rxd(uart_rxd),
+                    .txd(uart_txd),
+                    // status
+                    .tx_busy(),
+                    .rx_busy(),
+                    .rx_overrun_error(),
+                    .rx_frame_error(),
+                    // configuration
+//                    .prescale(125000000/(9600*8)) // 9600 bps
+//                    .prescale(125000000/(115200*8)) // 115200 bps
+                    .prescale(48000000/(115200*8)) // 115200 bps
+//                    .prescale(48000000/(9600*8)) // 9600 bps
+//                    .prescale(52) // 115200 bps with 48 mhz clock
+                );
+                                      
+`else
+
    usb_uart uart(.clk_48mhz(clk_usb),
                  .reset(reset_usb),
                  // usb pins
@@ -190,6 +226,7 @@ module top (input       pin_clk,
                  .uart_out_ready(uart_out_ready),
                  .det_reset(det_reset)
                  );
+`endif
 
    command_handler #(.ROWS(ROWS),
                      .COLS(COLS),
@@ -211,5 +248,5 @@ module top (input       pin_clk,
                       .new_cursor_wen(new_cursor_wen),
                       .graphic_mode(graphic_mode)
                       );
-
+                      
  endmodule

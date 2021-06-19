@@ -28,18 +28,8 @@ module char_buffer
         atr[waddr] <= graphic_mode;
       end
       
-      if(atr[raddr]==1) 
-      begin
-        case (mem[raddr])
-            "p": begin
-                dout = "-";
-            end
-            
-            default: begin
-                dout <= mem[raddr]; 
-            end
-        endcase        
-      end      
+      if((atr[raddr] == 1) && (mem[raddr] > 96) && (mem[raddr] < 128) )
+        dout <= 128 + mem[raddr];
       else
         dout <= mem[raddr];
    end
