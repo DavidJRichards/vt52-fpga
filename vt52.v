@@ -53,8 +53,8 @@ module top (input       pin_clk,
    wire vblank, hblank;
    wire video;
    assign vga_clk = clk_vga;
-   assign vga_blank = 1'b1;
-
+   assign vga_blank = ~hblank; // background colour always black if vblank added as well
+ 
    // uart input/output
    wire [7:0] uart_out_data;
    wire uart_out_valid;
@@ -75,33 +75,11 @@ module top (input       pin_clk,
    // USB host detect and reset
    assign pin_pu = 1'b1;
 
-   assign vga_r[7] = video;
-   assign vga_r[6] = video;
-   assign vga_r[5] = video;
-   assign vga_r[4] = video;
-   assign vga_r[3] = video;
-   assign vga_r[2] = video;
-   assign vga_r[1] = video;
-   assign vga_r[0] = video;
-   
-   assign vga_g[7] = video;
-   assign vga_g[6] = video;
-   assign vga_g[5] = video;
-   assign vga_g[4] = video;
-   assign vga_g[3] = video;
-   assign vga_g[2] = video;
-   assign vga_g[1] = video;
-   assign vga_g[0] = video;
-   
-   assign vga_b[7] = video;
-   assign vga_b[6] = video;
-   assign vga_b[5] = video;
-   assign vga_b[4] = video;
-   assign vga_b[3] = video;
-   assign vga_b[2] = video;
-   assign vga_b[1] = video;
-   assign vga_b[0] = video;
-   
+   // amber text on dark blue, alt full drive {8{video}};
+   assign vga_r = (video) ? 240 : 0;
+   assign vga_g = (video) ? 240 : 0;
+   assign vga_b = (video) ? 0 : 64;
+ 
    assign graphic_mode_state = graphic_mode;
    
    //
